@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Creative Site</title>
+    <style>
+        /* Reset */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: #fafafa;
+            color: #333;
+            line-height: 1.6;
+        }
+        /* Navbar */
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ff5e62;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #ff5e62;
+        }
+        /* Hero Section */
+        
+        header {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 150px 20px;
+            background: linear-gradient(to right, #ff5e62, #ff9966);
+            color: #fff;
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s 0.5s ease forwards;
+        }
+        
+        header .btn {
+            background: #fff;
+            color: #ff5e62;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background 0.3s, color 0.3s;
+        }
+        
+        header .btn:hover {
+            background: #ff5e62;
+            color: #fff;
+        }
+        /* Sections */
+        
+        section {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        
+        section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #ff5e62;
+        }
+        /* Features Cards */
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: #fff;
+            padding: 30px 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        /* Contact */
+        
+        #contact p {
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: #ff5e62;
+            color: #fff;
+        }
+        /* Animations */
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">BrandLogo</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header id="home">
+        <h1>abdirahman</h1>
+        <p>We build beautiful websites and web apps that help your business grow.</p>
+        <a href="#features" class="btn">Our Features</a>
+    </header>
+
+    <section id="features">
+        <h2>Features</h2>
+        <div class="features">
+            <div class="feature-card">
+                <h3>Fast Performance</h3>
+                <p>Websites optimized for speed and smooth user experience on any device.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Responsive Design</h3>
+                <p>Layouts that look perfect on mobile, tablet, and desktop screens.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Interactive UI</h3>
+                <p>Modern and engaging interfaces that delight your users.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Get in touch: <a href="mailto:contact@example.com">contact@example.com</a></p>
+    </section>
+
+    <footer>
+        &copy; 2025 Modern Creative Site. All rights reserved.
+    </footer>
+
+    <script>
+        // Animate feature cards on scroll
+        const cards = document.querySelectorAll('.feature-card');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.style.transition = 'all 0.6s ease-out';
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+        cards.forEach(card => observer.observe(card));
+    </script>
+
+</body>
+
+</html>
